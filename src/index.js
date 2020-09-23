@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import Hello from "./Hello";
 import * as serviceWorker from "./serviceWorker";
+import "tachyons";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <h1>Hello REACT!</h1>
-  </React.StrictMode>,
+  <Hello greeting={"Hello from parent"} />,
   document.getElementById("root")
 );
 
