@@ -5,16 +5,20 @@ import SearchBox from "./SearchBox";
 // style
 import "./App.css";
 
-// data
-import { robots } from "./robots";
-
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      robots: robots,
+      robots: [],
       searchfield: "",
     };
+  }
+
+  componentDidMount() {
+    // fetch is windows property so no need to define from scratch!
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((users) => this.setState({ robots: users }));
   }
 
   onSearchChange = (event) => {
